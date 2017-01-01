@@ -27,14 +27,14 @@ import (
 )
 
 func parseDockerCompose() *project.Project {
-	composeFile := composeFilePath + "docker-compose.yml"
+	cf := composeFile
 	p := project.NewProject(&project.Context{
 		ProjectName:  "kube",
-		ComposeFiles: []string{composeFile},
+		ComposeFiles: []string{cf},
 	}, nil, &config.ParseOptions{})
 
 	if err := p.Parse(); err != nil {
-		log.Fatalf("Failed to parse the compose project from %s: %v", composeFile, err)
+		log.Fatalf("Failed to parse the compose project from %s: %v", cf, err)
 	}
 	if err := os.MkdirAll(outputDir, 0755); err != nil {
 		log.Fatalf("Failed to create the output directory %s: %v", outputDir, err)

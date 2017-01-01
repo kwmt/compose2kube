@@ -27,8 +27,8 @@ import (
 )
 
 func parseRancherCompose() map[interface{}]interface{} {
-	composeFile := composeFilePath + "rancher-compose.yml"
-	file, err := ioutil.ReadFile(composeFile)
+	cf := composeFile + "rancher-compose.yml"
+	file, err := ioutil.ReadFile(cf)
 	if err != nil {
 		//log.Printf("warning: %v", err)
 		return nil
