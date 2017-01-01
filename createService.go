@@ -17,7 +17,7 @@ import (
 	"github.com/docker/libcompose/config"
 
 	"k8s.io/kubernetes/pkg/api"
-	"k8s.io/kubernetes/pkg/api/unversioned"
+	metav1 "k8s.io/kubernetes/pkg/apis/meta/v1"
 )
 
 func createService(shortName string, service *config.ServiceConfig, rc *api.ReplicationController) *api.Service {
@@ -27,7 +27,7 @@ func createService(shortName string, service *config.ServiceConfig, rc *api.Repl
 	}
 
 	srv := &api.Service{
-		TypeMeta: unversioned.TypeMeta{
+		TypeMeta: metav1.TypeMeta{
 			Kind:       "Service",
 			APIVersion: "v1",
 		},

@@ -21,12 +21,12 @@ import (
 	"github.com/docker/libcompose/config"
 
 	"k8s.io/kubernetes/pkg/api"
-	"k8s.io/kubernetes/pkg/api/unversioned"
+	metav1 "k8s.io/kubernetes/pkg/apis/meta/v1"
 )
 
 func createReplicationController(name string, shortName string, service *config.ServiceConfig, rancherCompose map[interface{}]interface{}) *api.ReplicationController {
 	rc := &api.ReplicationController{
-		TypeMeta: unversioned.TypeMeta{
+		TypeMeta: metav1.TypeMeta{
 			Kind:       "ReplicationController",
 			APIVersion: "v1",
 		},
